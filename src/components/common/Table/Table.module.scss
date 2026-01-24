@@ -2,11 +2,16 @@
 
 .tableContainer {
     width: 100%;
-    overflow-x: auto;
+    max-height: 520px; // Adjust as needed for your layout
+    overflow-y: auto;  // Vertical scroll for table body
+    overflow-x: auto;  // Horizontal scroll when table is wide
 }
 
 .table {
-    width: 100%;
+    // Let the table grow horizontally based on its columns,
+    // but never be smaller than the container.
+    width: max-content;
+    min-width: 100%;
     border-collapse: collapse;
     text-align: left;
 }
@@ -19,6 +24,9 @@
     border-bottom: 2px solid $slate-100;
     background: $slate-50;
     white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 1; // Keep header above body rows while scrolling
 }
 
 .td {
@@ -27,6 +35,7 @@
     color: $slate-800;
     border-bottom: 1px solid $slate-100;
     vertical-align: middle;
+    white-space: nowrap; // Forces horizontal scroll if content is long
 }
 
 .tr {

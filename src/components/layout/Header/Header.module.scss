@@ -11,6 +11,10 @@
     z-index: 40;
     padding: 0 $gap-lg;
     @include flex-between;
+
+    @include mobile {
+        padding: 0 $gap-md;
+    }
 }
 
 .title {
