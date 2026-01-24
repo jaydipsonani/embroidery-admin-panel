@@ -1,0 +1,52 @@
+@import '@/styles/variables';
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin glass-effect {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@mixin card-base {
+    background: $bg-card;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-sm;
+    border: 1px solid $border-color;
+    transition: all 0.3s ease;
+
+    &:hover {
+        box-shadow: $shadow-md;
+        transform: translateY(-2px);
+    }
+}
+
+@mixin text-gradient {
+    background: $gradient-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@mixin mobile {
+    @media (max-width: 640px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: 1024px) {
+        @content;
+    }
+}

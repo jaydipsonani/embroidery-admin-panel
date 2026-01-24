@@ -1,0 +1,25 @@
+@import '@/styles/variables';
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.amountPending {
+    color: $warning-500;
+}
+
+.method {
+    font-weight: 600;
+}
+
+.details {
+    font-size: 0.75rem;
+    color: $slate-500;
+}
+
+.completed {
+    color: $slate-400;
+    font-size: 0.875rem;
+    font-style: italic;
+}

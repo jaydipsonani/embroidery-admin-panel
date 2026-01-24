@@ -1,0 +1,112 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: $gap-md;
+    margin-bottom: $gap-lg;
+}
+
+.statCard {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.statInfo {
+    .label {
+        font-size: 0.875rem;
+        color: $slate-500;
+        margin-bottom: $gap-xs;
+    }
+
+    .value {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: $slate-900;
+    }
+
+    .trend {
+        font-size: 0.875rem;
+        color: $success-500;
+        margin-top: $gap-xs;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        &.negative {
+            color: $danger-500;
+        }
+    }
+}
+
+.iconBox {
+    width: 48px;
+    height: 48px;
+    border-radius: $radius-lg;
+    @include flex-center;
+    background: $primary-100;
+    color: $primary-600;
+
+    &.purple {
+        background: #f3e8ff;
+        color: #9333ea;
+    }
+
+    &.green {
+        background: #dcfce7;
+        color: #16a34a;
+    }
+
+    &.orange {
+        background: #ffedd5;
+        color: #ea580c;
+    }
+}
+
+.section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: $gap-md;
+
+    @include tablet {
+        grid-template-columns: 1fr;
+    }
+}
+
+.activityList {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-md;
+}
+
+.activityItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: $gap-sm;
+    border-bottom: 1px solid $slate-100;
+
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+.orderInfo {
+    p {
+        font-weight: 500;
+        color: $slate-800;
+    }
+
+    span {
+        font-size: 0.85rem;
+        color: $slate-500;
+    }
+}
+
+.amount {
+    font-weight: 600;
+    color: $success-500;
+}

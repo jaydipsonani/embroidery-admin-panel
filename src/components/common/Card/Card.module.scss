@@ -1,0 +1,14 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.card {
+    @include card-base;
+    padding: $gap-lg;
+}
+
+.title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $slate-800;
+    margin-bottom: $gap-md;
+}

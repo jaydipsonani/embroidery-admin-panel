@@ -1,0 +1,66 @@
+@import '@/styles/variables';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $slate-700;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    position: absolute;
+    left: 1rem;
+    color: $slate-400;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid $slate-200;
+    border-radius: $radius-md;
+    background: $white;
+    color: $slate-900;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+
+    &::placeholder {
+        color: $slate-400;
+    }
+
+    &:focus {
+        border-color: $primary-500;
+        box-shadow: 0 0 0 4px rgba($primary-500, 0.1);
+    }
+
+    &.hasIcon {
+        padding-left: 2.75rem;
+    }
+
+    &.hasError {
+        border-color: $danger-500;
+
+        &:focus {
+            box-shadow: 0 0 0 4px rgba($danger-500, 0.1);
+        }
+    }
+}
+
+.error {
+    font-size: 0.75rem;
+    color: $danger-500;
+}

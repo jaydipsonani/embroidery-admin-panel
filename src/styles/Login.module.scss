@@ -1,0 +1,60 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+    @include flex-center;
+    background: radial-gradient(circle at top right, $primary-100, transparent),
+        radial-gradient(circle at bottom left, $primary-50, transparent),
+        $slate-50;
+    padding: $gap-md;
+}
+
+.card {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid $white;
+    border-radius: $radius-2xl;
+    padding: $gap-lg;
+    box-shadow: $shadow-premium;
+    text-align: center;
+}
+
+.logo {
+    margin-bottom: $gap-lg;
+
+    .icon {
+        width: 48px;
+        height: 48px;
+        color: $primary-600;
+    }
+}
+
+.title {
+    font-family: $font-display;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $slate-900;
+    margin-bottom: $gap-xs;
+}
+
+.subtitle {
+    color: $slate-500;
+    margin-bottom: $gap-lg;
+    font-size: 0.95rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-md;
+}
+
+.footer {
+    margin-top: $gap-lg;
+    font-size: 0.875rem;
+    color: $slate-400;
+}
