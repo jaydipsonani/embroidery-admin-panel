@@ -17,10 +17,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     const { logout } = useAuth();
 
     const links = [
-        { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
-        { href: '/admin/designers', label: 'Designers', icon: Users },
-        { href: '/admin/withdrawals', label: 'Withdrawals', icon: RefreshCw },
-        { href: '/admin/sales', label: 'Transactions', icon: BadgeDollarSign },
+        { href: '/', label: 'Dashboard', icon: LayoutDashboard },
+        { href: '/designers', label: 'Designers', icon: Users },
+        { href: '/withdrawals', label: 'Withdrawals', icon: RefreshCw },
+        { href: '/sales', label: 'Transactions', icon: BadgeDollarSign },
     ];
 
     return (
@@ -34,7 +34,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                 <nav className={styles.nav}>
                     {links.map((link) => {
                         const Icon = link.icon;
-                        const isActive = router.pathname === link.href || (link.href !== '/admin' && router.pathname.startsWith(link.href));
+                        const isActive = router.pathname === link.href || (link.href !== '/' && router.pathname.startsWith(link.href));
 
                         return (
                             <Link key={link.href} href={link.href} className={clsx(styles.link, { [styles.active]: isActive })}>

@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             const adminUser: User = { email, role: 'admin' };
             setUser(adminUser);
             localStorage.setItem('admin_user', JSON.stringify(adminUser));
-            router.push('/admin');
+            router.push('/');
             return true;
         }
         return false;

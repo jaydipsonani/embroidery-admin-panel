@@ -25,7 +25,7 @@ export default function Login() {
             if (success) {
                 toastSuccess('Welcome back, Admin!');
                 // Redirect handled in context
-                router.push('/admin');
+                router.push('/');
             } else {
                 toastError('Invalid credentials. Access denied.');
                 setError('Invalid credentials. Access denied.');
