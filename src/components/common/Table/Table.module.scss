@@ -1,10 +1,19 @@
 @import '@/styles/variables';
+@import '@/styles/mixins';
 
 .tableContainer {
     width: 100%;
-    max-height: 520px; // Adjust as needed for your layout
+    max-width: 100%;
+    max-height: 750px; // Adjust as needed for your layout
     overflow-y: auto;  // Vertical scroll for table body
     overflow-x: auto;  // Horizontal scroll when table is wide
+    -webkit-overflow-scrolling: touch; // Smooth scrolling on iOS
+    @include customScroll;
+    position: relative;
+
+    @include mobile {
+        max-height: 450px;
+    }
 }
 
 .table {
@@ -14,6 +23,7 @@
     min-width: 100%;
     border-collapse: collapse;
     text-align: left;
+    table-layout: auto;
 }
 
 .th {
@@ -27,6 +37,16 @@
     position: sticky;
     top: 0;
     z-index: 1; // Keep header above body rows while scrolling
+
+    @include mobile {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    @include tablet {
+        padding: 0.875rem 0.75rem;
+        font-size: 0.8125rem;
+    }
 }
 
 .td {
@@ -36,6 +56,16 @@
     border-bottom: 1px solid $slate-100;
     vertical-align: middle;
     white-space: nowrap; // Forces horizontal scroll if content is long
+
+    @include mobile {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    @include tablet {
+        padding: 0.875rem 0.75rem;
+        font-size: 0.9rem;
+    }
 }
 
 .tr {

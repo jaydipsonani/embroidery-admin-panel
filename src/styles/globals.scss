@@ -12,11 +12,15 @@
 html,
 body {
     height: 100%;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
     font-family: $font-sans;
     background-color: $bg-body;
     color: $text-primary;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    position: relative;
 }
 
 a {
@@ -36,6 +40,10 @@ select,
 textarea {
     font-family: inherit;
     outline: none;
+}
+
+.Card-module-scss-module__IUn-EW__card{
+    padding: 1rem !important;
 }
 
 // Scrollbar
@@ -59,7 +67,6 @@ textarea {
 
 // Utility Classes
 .container {
-    max-width: 1400px;
     margin: 0 auto;
     padding: 0 $gap-md;
 }

@@ -53,8 +53,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                 </div>
             </aside>
 
-            {/* Mobile Overlay */}
-            {isOpen && <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={onClose} />}
+            {/* Mobile/Tablet Overlay */}
+            {isOpen && <div className={styles.overlay} onClick={onClose} />}
         </>
     );
 };

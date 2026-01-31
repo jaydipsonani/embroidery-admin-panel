@@ -4,6 +4,18 @@
 .card {
     @include card-base;
     padding: $gap-lg;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    @include tablet {
+        padding: $gap-md;
+    }
+
+    @include mobile {
+        padding: $gap-sm;
+        border-radius: $radius-lg;
+    }
 }
 
 .title {
@@ -11,4 +23,9 @@
     font-weight: 600;
     color: $slate-800;
     margin-bottom: $gap-md;
+
+    @include mobile {
+        font-size: 1rem;
+        margin-bottom: $gap-sm;
+    }
 }

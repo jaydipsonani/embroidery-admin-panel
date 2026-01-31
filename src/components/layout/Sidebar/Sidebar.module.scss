@@ -13,8 +13,10 @@
     top: 0;
     z-index: 50;
     transition: transform 0.3s ease;
+    overflow-y: auto;
+    overflow-x: hidden;
 
-    @include mobile {
+    @include mobile-tablet {
         transform: translateX(-100%);
 
         &.open {
@@ -72,4 +74,16 @@
 .footer {
     padding: $gap-md;
     border-top: 1px solid $slate-100;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+    backdrop-filter: blur(2px);
+
+    @media (min-width: 1025px) {
+        display: none;
+    }
 }

@@ -58,8 +58,18 @@
 
 .toggle {
     display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: $radius-md;
+    color: $slate-700;
+    transition: all 0.2s;
 
-    @include mobile {
+    &:hover {
+        background: $slate-100;
+    }
+
+    @include mobile-tablet {
         display: flex;
     }
 }

@@ -1,8 +1,20 @@
 @import '@/styles/variables';
+@import '@/styles/mixins';
 
 .actions {
     display: flex;
     gap: 0.5rem;
+    flex-wrap: wrap;
+
+    @include mobile {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.25rem;
+
+        button {
+            width: 100%;
+        }
+    }
 }
 
 .amountPending {
