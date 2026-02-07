@@ -53,11 +53,13 @@
     border-radius: $radius-md;
     transition: all 0.2s;
     font-weight: 500;
+    text-decoration: none;
 
     &:hover {
         background: $slate-50;
         color: $primary-600;
     }
+
 
     &.active {
         background: $primary-50;

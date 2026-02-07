@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from './Sidebar.module.scss';
@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import { LayoutDashboard, Users, RefreshCw, BadgeDollarSign, LogOut, Hexagon } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/common/Button';
+import { Modal, Button as BootstrapButton } from 'react-bootstrap';
 
 interface SidebarProps {
     isOpen?: boolean;
@@ -14,6 +15,7 @@ interface SidebarProps {
 
 export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     const router = useRouter();
+    const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
     const { logout } = useAuth();
 
     const links = [
@@ -46,7 +48,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                 </nav>
 
                 <div className={styles.footer}>
-                    <Button variant="ghost" className="w-full justify-start" onClick={logout}>
+                    <Button variant="ghost" className="w-full justify-start" onClick={() => setIsLogoutModalOpen(true)}>
                         <LogOut size={20} />
                         <span>Sign Out</span>
                     </Button>
@@ -55,6 +57,23 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
             {/* Mobile/Tablet Overlay */}
             {isOpen && <div className={styles.overlay} onClick={onClose} />}
+
+            <Modal show={isLogoutModalOpen} onHide={() => setIsLogoutModalOpen(false)} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>Confirm Logout</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>Are you sure you want to log out? You will need to sign in again to access the admin panel.</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <BootstrapButton variant="secondary" onClick={() => setIsLogoutModalOpen(false)}>
+                        Cancel
+                    </BootstrapButton>
+                    <BootstrapButton variant="danger" onClick={logout}>
+                        Logout
+                    </BootstrapButton>
+                </Modal.Footer>
+            </Modal>
         </>
     );
 };

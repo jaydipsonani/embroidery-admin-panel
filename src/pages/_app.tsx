@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import { AuthProvider } from '@/context/AuthContext';
 
 import { Toaster } from 'react-hot-toast';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/nprogress.scss'; // Import custom nprogress styles
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -12,7 +13,7 @@ import NProgress from 'nprogress';
 
 export default function App({ Component, pageProps }: AppProps) {
 
-    const router = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
     const handleStart = () => {
