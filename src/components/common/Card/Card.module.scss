@@ -16,6 +16,10 @@
         padding: $gap-sm;
         border-radius: $radius-lg;
     }
+
+    &.noPadding {
+        padding: 0 !important;
+    }
 }
 
 .title {
