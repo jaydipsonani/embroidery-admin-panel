@@ -4,6 +4,7 @@ import { Header } from '../Header';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/router';
 import styles from './AdminLayout.module.scss';
+import clsx from 'clsx';
 
 interface AdminLayoutProps {
     children: React.ReactNode;
@@ -14,6 +15,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title }) => 
     const { user, isLoading } = useAuth();
     const router = useRouter();
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [isCollapsed, setIsCollapsed] = useState(false);
 
     useEffect(() => {
         if (!isLoading && !user) {
@@ -26,8 +28,13 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title }) => 
     }
 
     return (
-        <div className={styles.layout}>
-            <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+        <div className={clsx(styles.layout, { [styles.collapsed]: isCollapsed })}>
+            <Sidebar
+                isOpen={sidebarOpen}
+                onClose={() => setSidebarOpen(false)}
+                isCollapsed={isCollapsed}
+                setIsCollapsed={setIsCollapsed}
+            />
 
             <div className={styles.mainContent}>
                 <Header title={title} onMenuClick={() => setSidebarOpen(!sidebarOpen)} />

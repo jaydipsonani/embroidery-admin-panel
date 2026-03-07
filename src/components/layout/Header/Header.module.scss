@@ -10,9 +10,11 @@
     top: 0;
     z-index: 40;
     padding: 0 $gap-lg;
+    display: none !important; // Hide by default on desktop
     @include flex-between;
 
-    @include mobile {
+    @include mobile-tablet {
+        display: flex !important; // Show on mobile and tablet
         padding: 0 $gap-md;
     }
 }

@@ -1,6 +1,9 @@
 @import '@/styles/variables';
 @import '@/styles/mixins';
 
+$sidebar-width: 280px;
+$sidebar-collapsed-width: 80px;
+
 .layout {
     display: flex;
     min-height: 100vh;
@@ -10,16 +13,23 @@
     overflow-x: hidden;
     background: $slate-50;
     position: relative;
+
+    &.collapsed {
+        .mainContent {
+            margin-left: $sidebar-collapsed-width;
+            width: calc(100% - #{$sidebar-collapsed-width});
+        }
+    }
 }
 
 .mainContent {
     flex: 1;
     min-width: 0; // Prevents flex item from overflowing
-    margin-left: 280px; // Sidebar width
+    margin-left: $sidebar-width; // Sidebar width
     display: flex;
     flex-direction: column;
-    transition: margin 0.3s ease;
-    width: calc(100% - 280px);
+    transition: all 0.3s ease;
+    width: calc(100% - #{$sidebar-width});
 
     @include mobile-tablet {
         margin-left: 0;
@@ -41,4 +51,23 @@
     @include mobile {
         padding: $gap-sm;
     }
+}
+
+.pageHeader {
+    margin-bottom: $gap-lg;
+    display: block;
+
+    @include mobile-tablet {
+        display: none;
+    }
+}
+
+.pageTitle {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: $slate-900;
+    margin: 0;
+    padding-bottom: $gap-sm;
+    border-bottom: 1px solid $border-color;
+    font-family: $font-display;
 }

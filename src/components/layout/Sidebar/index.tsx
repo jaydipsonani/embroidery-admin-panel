@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from './Sidebar.module.scss';
 import clsx from 'clsx';
-import { LayoutDashboard, Users, RefreshCw, BadgeDollarSign, LogOut, Hexagon } from 'lucide-react';
+import { LayoutDashboard, Users, RefreshCw, BadgeDollarSign, LogOut, Hexagon, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/common/Button';
 import { Modal, Button as BootstrapButton } from 'react-bootstrap';
@@ -11,9 +11,11 @@ import { Modal, Button as BootstrapButton } from 'react-bootstrap';
 interface SidebarProps {
     isOpen?: boolean;
     onClose?: () => void;
+    isCollapsed?: boolean;
+    setIsCollapsed?: (collapsed: boolean) => void;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, isCollapsed, setIsCollapsed }) => {
     const router = useRouter();
     const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
     const { logout } = useAuth();
@@ -29,11 +31,21 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
     return (
         <>
-            <aside className={clsx(styles.sidebar, { [styles.open]: isOpen })}>
+            <aside className={clsx(styles.sidebar, { [styles.open]: isOpen, [styles.collapsed]: isCollapsed })}>
                 <div className={styles.brand}>
                     <Hexagon size={28} />
-                    <span>Embroidery Admin</span>
+                    {!isCollapsed && <span>Embroidery Admin</span>}
                 </div>
+
+                {setIsCollapsed && (
+                    <button 
+                        className={styles.collapseToggle} 
+                        onClick={() => setIsCollapsed(!isCollapsed)}
+                        aria-label={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
+                    >
+                        {isCollapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
+                    </button>
+                )}
 
                 <nav className={styles.nav}>
                     {links.map((link) => {
@@ -43,16 +55,16 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                         return (
                             <Link key={link.href} href={link.href} className={clsx(styles.link, { [styles.active]: isActive })}>
                                 <Icon />
-                                <span>{link.label}</span>
+                                {!isCollapsed && <span>{link.label}</span>}
                             </Link>
                         );
                     })}
                 </nav>
 
                 <div className={styles.footer}>
-                    <Button variant="ghost" className="w-full justify-start" onClick={() => setIsLogoutModalOpen(true)}>
+                    <Button variant="ghost" className={clsx("w-full justify-start", styles.logoutButton)} onClick={() => setIsLogoutModalOpen(true)}>
                         <LogOut size={20} />
-                        <span>Sign Out</span>
+                        {!isCollapsed && <span>Sign Out</span>}
                     </Button>
                 </div>
             </aside>

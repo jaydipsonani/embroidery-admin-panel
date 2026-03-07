@@ -1,8 +1,11 @@
 @import '@/styles/variables';
 @import '@/styles/mixins';
 
+$sidebar-width: 280px;
+$sidebar-collapsed-width: 80px;
+
 .sidebar {
-    width: 280px;
+    width: $sidebar-width;
     height: 100dvh;
     background: $white;
     border-right: 1px solid $border-color;
@@ -12,15 +15,55 @@
     left: 0;
     top: 0;
     z-index: 50;
-    transition: transform 0.3s ease;
-    overflow-y: auto;
-    overflow-x: hidden;
+    transition: all 0.3s ease;
+    overflow: visible; // Allow toggle button to overflow
+
+    &.collapsed {
+        width: $sidebar-collapsed-width;
+
+        .brand {
+            justify-content: center;
+            padding: 0;
+            gap: 0;
+        }
+
+        .nav {
+            padding: $gap-lg $gap-xs;
+            align-items: center;
+        }
+
+        .link {
+            justify-content: center;
+            padding: 10px;
+            width: 44px;
+            height: 44px;
+            margin: 0 auto;
+        }
+
+        .footer {
+            padding: $gap-md $gap-xs;
+            display: flex;
+            justify-content: center;
+        }
+
+        .logoutButton {
+            justify-content: center !important;
+            padding: 10px !important;
+            width: 44px !important;
+            min-width: 44px !important;
+        }
+    }
 
     @include mobile-tablet {
         transform: translateX(-100%);
+        width: $sidebar-width !important; // Always full width on mobile when open
 
         &.open {
             transform: translateX(0);
+        }
+
+        .collapseToggle {
+            display: none;
         }
     }
 }
@@ -34,6 +77,35 @@
     font-weight: 700;
     color: $primary-600;
     gap: $gap-xs;
+    transition: all 0.3s ease;
+}
+
+.collapseToggle {
+    position: absolute;
+    right: -14px;
+    top: 66px; // Center vertically relative to brand bottom
+    width: 28px;
+    height: 28px;
+    background: $white;
+    border: 1px solid $border-color;
+    border-radius: 50%; // Circular like the image
+    @include flex-center;
+    cursor: pointer;
+    z-index: 100; // Above everything
+    color: $slate-600;
+    transition: all 0.2s;
+    box-shadow: $shadow-sm;
+
+    &:hover {
+        background: $slate-50;
+        color: $primary-600;
+        border-color: $slate-300;
+    }
+
+    svg {
+        width: 16px;
+        height: 16px;
+    }
 }
 
 .nav {
@@ -42,13 +114,16 @@
     display: flex;
     flex-direction: column;
     gap: $gap-xs;
+    overflow-y: auto;
+    overflow-x: hidden;
+    @include customScroll;
 }
 
 .link {
     display: flex;
     align-items: center;
     gap: $gap-sm;
-    padding: $gap-sm $gap-md;
+    padding: 10px 20px;
     color: $slate-500;
     border-radius: $radius-md;
     transition: all 0.2s;

@@ -17,12 +17,6 @@
     &.primary {
         background: $gradient-primary;
         color: $white;
-        box-shadow: 0 4px 6px -1px rgba($primary-600, 0.3);
-
-        &:hover:not(:disabled) {
-            box-shadow: 0 10px 15px -3px rgba($primary-600, 0.4);
-            filter: brightness(1.1);
-        }
     }
 
     &.secondary {

@@ -42,10 +42,6 @@
         color: $slate-400;
     }
 
-    &:focus {
-        border-color: $primary-500;
-        box-shadow: 0 0 0 4px rgba($primary-500, 0.1);
-    }
 
     &.hasIcon {
         padding-left: 2.75rem;
@@ -54,9 +50,6 @@
     &.hasError {
         border-color: $danger-500;
 
-        &:focus {
-            box-shadow: 0 0 0 4px rgba($danger-500, 0.1);
-        }
     }
 }
 
