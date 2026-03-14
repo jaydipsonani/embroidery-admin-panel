@@ -22,11 +22,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, isCollapsed, 
 
     const links = [
         { href: '/', label: 'Dashboard', icon: LayoutDashboard },
+        { href: '/sales', label: 'Sales Management', icon: BadgeDollarSign },
         { href: '/designers', label: 'Designers', icon: Users },
         { href: '/users', label: 'Machine Owners', icon: Users },
         { href: '/designs', label: 'Design Approval', icon: RefreshCw },
         { href: '/withdrawals', label: 'Withdrawals', icon: RefreshCw },
-        { href: '/sales', label: 'Transactions', icon: BadgeDollarSign },
         
     ];
 

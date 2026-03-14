@@ -5,7 +5,7 @@ import SalesComponent from '@/components/admin/Sales';
 
 export default function Sales() {
     return (
-        <AdminLayout title="Transaction History">
+        <AdminLayout title="Sales History">
             <Head><title>Sales | Embroidery Admin</title></Head>
             <SalesComponent />
         </AdminLayout>

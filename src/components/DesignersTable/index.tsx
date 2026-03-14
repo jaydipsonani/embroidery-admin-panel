@@ -1,7 +1,7 @@
 import React from 'react';
 import { Designer } from '@/data/mockData';
 import styles from '@/components/common/Table/Table.module.scss';
-import customStyles from './Designers.module.scss';
+import customStyles from './designerTable.module.scss';
 import clsx from 'clsx';
 
 interface DesignersTableProps {
@@ -14,10 +14,10 @@ export const DesignersTable = ({ data }: DesignersTableProps) => {
             <table className={styles.table}>
                 <thead>
                     <tr>
+                        <th className={styles.th}>Joined Date</th>
                         <th className={styles.th}>ID</th>
                         <th className={styles.th}>Name</th>
                         <th className={styles.th}>Email</th>
-                        <th className={styles.th}>Joined Date</th>
                         <th className={styles.th}>Total Sales</th>
                         <th className={styles.th}>Wallet Balance</th>
                     </tr>

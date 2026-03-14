@@ -1,0 +1,10 @@
+@import '@/styles/variables';
+
+.mono {
+    font-family: monospace;
+}
+
+.balance {
+    color: $success-500;
+    font-weight: 700;
+}

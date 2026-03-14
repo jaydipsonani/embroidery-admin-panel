@@ -1,4 +1,370 @@
-@import '@/styles/variables';
+@import '../../../styles/main.scss';
+
+.userManagementPage {
+    border-radius: 14px;
+    padding: 13px;
+    background-color: #ffffff;
+    margin-bottom: 15px;
+
+
+    @include xxxs {
+        border-radius: 9px;
+    }
+}
+
+.userHeader {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    .userManagementPageBlock {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .searchButton {
+            padding: 0px 0 0 10px;
+            box-shadow: 0px 2px 100px 0px #0000001a;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+
+            input {
+                padding: 5px 10px;
+                border: none;
+                height: 35px;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                margin-left: 10px;
+
+                @include xl {
+                    width: 190px;
+                }
+
+                @include md {
+                    width: 180px;
+                }
+
+                @include xxs {
+                    width: 140px;
+                }
+
+                @include tiny {
+                    width: 136px;
+                    margin: 0;
+                }
+            }
+
+            button {
+                background: $slate-600;
+                color: white;
+                padding: 5px 10px;
+                border: none;
+                height: 45px;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                cursor: pointer;
+                font-size: 14px;
+                line-height: 17.22px;
+
+                @include xs {
+                    height: 40px;
+                }
+
+                @include tiny {
+                    padding: 5px 4px;
+                    font-size: 13px;
+                }
+            }
+        }
+
+        .resetButton {
+            button {
+                background: $slate-600;
+                color: white;
+                border: none;
+                height: 35px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 15px;
+                line-height: 17.22px;
+                height: 45px;
+                padding: 0 22px;
+
+                @include xl {
+                    padding: 0 18px;
+                }
+
+                @include xs {
+                    height: 40px;
+                    font-size: 14px;
+                }
+
+                @include tiny {
+                    padding: 0 10px;
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+
+    .downloadButton {
+        button {
+            border: none;
+            height: 41px;
+            width: 110px;
+            border-radius: 5px;
+            background-color: #6d6b6b;
+            color: white;
+            font-size: 14px;
+            line-height: 17.22px;
+
+            @include xs {
+                height: 39px;
+            }
+
+            @include xxxs {
+                width: 100px;
+            }
+        }
+    }
+
+    .allDataButton {
+        .activeButton {
+            background: $slate-600;
+            color: white;
+        }
+
+        .inactiveButton {
+            background-color: #f3f3f3;
+            color: #000;
+        }
+
+        button {
+            border: none;
+            height: 41px;
+            width: 110px;
+            border-radius: 5px;
+            background-color: #f3f3f3;
+            color: #000;
+            font-size: 14px;
+            line-height: 17.22px;
+
+            @include xs {
+                height: 39px;
+            }
+
+            @include xxxs {
+                width: 100px;
+            }
+        }
+    }
+
+    .selectMenuBlock {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        @media (max-width: 1500px) {
+            // justify-content: space-between;
+            width: 100%;
+        }
+
+        @include sm {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .selectMenu {
+            select {
+                background-color: #f3f3f3;
+                padding: 5px 10px;
+                border: none;
+                height: 35px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 12px;
+            }
+
+            .dropdown {
+                width: 170px;
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    border: unset;
+                    background: #f3f3f3;
+                    border-radius: 8px;
+                    padding: 9px 12px 9px 12px;
+                    height: 45px;
+                    width: 100%;
+                    gap: 10px;
+
+                    &:focus {
+                        box-shadow: unset;
+                    }
+
+                    @include xl {
+                        font-size: 14px;
+                    }
+
+                    @include xs {
+                        height: 40px;
+                    }
+
+                    &:after {
+                        background-image: url('../../../../public/assets/icons/dropdownArrow.svg');
+                        background-position: center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        min-width: 16px;
+                        height: 16px;
+                        border-top: unset;
+                        border-left: unset;
+                        cursor: pointer;
+                    }
+                }
+
+                .dropdownToggle {
+                    h3 {
+                        font-size: 15px;
+                        line-height: 18.45px;
+                        letter-spacing: 0.01em;
+                        color: #000;
+                    }
+                }
+            }
+
+            .dropdownMenu {
+                border: 1px solid #dedede;
+                background: #fff;
+                min-width: 100%;
+                box-shadow: 0px 0px 41.4px 0px rgba(197, 197, 197, 0.25);
+                padding: 0 0;
+                border-radius: 5px;
+                box-shadow: unset !important;
+                margin-top: 5px;
+
+                .dropdownItem {
+                    padding: 0 10px;
+                    border-bottom: 1px solid #e9edf5;
+
+                    &:active {
+                        background-color: unset;
+                    }
+
+                    &:last-child {
+                        border-bottom: unset;
+                    }
+
+                    &:focus {
+                        background-color: unset;
+                    }
+
+                    h3 {
+                        font-size: 14px;
+                        line-height: 17.64px;
+                        letter-spacing: 0.30000001192092896px;
+                        color: #5c5c5c;
+                        padding: 10px 0;
+
+                        &:focus {
+                            background-color: unset;
+                            box-shadow: unset;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .visibleCard {
+        @include pointer;
+    }
+}
+
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background-color: #f5f5f5;
+    max-height: 1000px;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+
+    // @include lg {
+    //   grid-template-columns: repeat(3, 1fr);
+    // }
+
+    @include xxs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &.hide {
+        max-height: 0;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &.show {
+        max-height: 1000px;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        gap: 10px;
+
+        @include xs {
+            padding: 12px;
+        }
+
+        @include xxs {
+            padding: 10px;
+        }
+
+        @include xs {
+            gap: 8px;
+        }
+
+        @include xxxs {
+            gap: 5px;
+        }
+    }
+
+    .title {
+        font-size: 16px;
+        color: #333;
+
+        @include sm {
+            line-height: 20px;
+        }
+
+        @include xxs {
+            font-size: 15px;
+            line-height: 25px;
+        }
+    }
+
+    .value {
+        font-size: 20px;
+        color: #fc4a1b;
+
+        @include xs {
+            font-size: 18px;
+        }
+    }
+}
 
 .mono {
     font-family: monospace;

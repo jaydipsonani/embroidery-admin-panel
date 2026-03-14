@@ -65,6 +65,49 @@ textarea {
     }
 }
 
+/* Prevent today (current date) from showing gray background on hover */
+.react-calendar__tile--now:not(.react-calendar__tile--rangeStart):not(
+    .react-calendar__tile--rangeEnd
+  ):not(.react-calendar__tile--range):hover,
+.react-calendar__tile--now.react-calendar__tile--hoverEnd {
+  background: #e6e5e5 !important;
+  color: inherit !important;
+}
+
+.react-calendar__tile--hoverEnd {
+  background: linear-gradient(90deg, #ff7916 0%, #fc4a1b 100%) !important;
+  color: white !important;
+}
+
+.react-calendar__navigation button {
+  min-width: 33px !important;
+  height: 28px !important;
+}
+.react-calendar {
+  border: unset !important;
+  font-size: 15px !important;
+}
+.react-calendar__month-view__weekdays {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-decoration: unset !important;
+  text-transform: capitalize !important;
+}
+.react-calendar__navigation button:hover,
+.react-calendar__navigation:hover,
+.react-calendar__navigation,
+.react-calendar__navigation button {
+  background-color: unset !important;
+}
+.react-calendar__navigation button:disabled {
+  background-color: unset !important;
+}
+
+.react-calendar__tile--hasActive {
+  background: linear-gradient(90deg, #ff7916 0%, #fc4a1b 100%) !important;
+  color: white !important;
+}
+
 // Utility Classes
 .container {
     margin: 0 auto;
