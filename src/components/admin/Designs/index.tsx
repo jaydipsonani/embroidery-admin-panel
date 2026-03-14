@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Card } from '@/components/common/Card';
-import { Table, Badge } from '@/components/common/Table';
+import { DesignsTable } from './DesignsTable';
 import { mockDesigns, Design } from '@/data/mockData';
 import styles from './Designs.module.scss';
 import clsx from 'clsx';
-import { Eye, CheckCircle, XCircle } from 'lucide-react';
-import { Button } from '@/components/common/Button';
 import { DesignDetailsModal } from './DesignDetailsModal';
 
 export default function DesignManagement() {
@@ -38,48 +36,6 @@ export default function DesignManagement() {
         setIsModalOpen(false);
     };
 
-    const columns = [
-        {
-            header: 'Image',
-            accessor: (item: Design) => (
-                <img src={item.image} alt={item.name} className={styles.designImage} />
-            ),
-            className: styles.imageCell
-        },
-        {
-            header: 'Design Details',
-            accessor: (item: Design) => (
-                <div>
-                    <div className={styles.designName}>{item.name}</div>
-                    <div className={styles.category}>{item.category}</div>
-                </div>
-            )
-        },
-        { header: 'Designer', accessor: 'designerName' as const },
-        { header: 'Price', accessor: (item: Design) => `₹${item.price}` },
-        { header: 'Date', accessor: 'uploadDate' as const },
-        {
-            header: 'Actions',
-            accessor: (item: Design) => (
-                <div className={styles.actions}>
-                    <Button variant="ghost" size="sm" onClick={() => handleReview(item)}>
-                        <Eye size={18} />
-                    </Button>
-                    {item.status === 'pending' && (
-                        <>
-                            <Button variant="ghost" size="sm" onClick={() => handleApprove(item.id)} className={styles.textSuccess}>
-                                <CheckCircle size={18} />
-                            </Button>
-                            <Button variant="ghost" size="sm" onClick={() => handleReject(item.id)} className={styles.textDanger}>
-                                <XCircle size={18} />
-                            </Button>
-                        </>
-                    )}
-                </div>
-            )
-        },
-    ];
-
     return (
         <Card noPadding>
             <div className={styles.tabs}>
@@ -95,10 +51,11 @@ export default function DesignManagement() {
                 ))}
             </div>
 
-            <Table
+            <DesignsTable
                 data={filteredDesigns}
-                columns={columns}
-                keyField="id"
+                onReview={handleReview}
+                onApprove={handleApprove}
+                onReject={handleReject}
             />
 
             <DesignDetailsModal
