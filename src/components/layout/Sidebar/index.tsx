@@ -25,7 +25,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, isCollapsed, 
         { href: '/sales', label: 'Sales Management', icon: BadgeDollarSign },
         { href: '/designers', label: 'Designers', icon: Users },
         { href: '/users', label: 'Machine Owners', icon: Users },
-        { href: '/designs', label: 'Design Approval', icon: RefreshCw },
+        { href: '/designsRequest', label: 'Design Requests', icon: RefreshCw },
         { href: '/withdrawals', label: 'Withdrawals', icon: RefreshCw },
         
     ];
