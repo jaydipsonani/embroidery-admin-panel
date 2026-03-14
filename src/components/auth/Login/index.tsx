@@ -5,7 +5,7 @@ import styles from './Login.module.scss';
 import { Button } from '@/components/common/Button';
 import { Input } from '@/components/common/Input';
 import { ShieldCheck, Mail, Lock } from 'lucide-react';
-import { toastSuccess, toastError } from '@/lib/toast';
+import { toastError, toastSuccess } from '@/utils';
 
 export default function Login() {
     const { login } = useAuth();

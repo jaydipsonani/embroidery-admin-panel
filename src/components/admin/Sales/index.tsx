@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card } from '@/components/common/Card';
 import { Table, Badge } from '@/components/common/Table';
 import { mockOrders } from '@/data/mockData';

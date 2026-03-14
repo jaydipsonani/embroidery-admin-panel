@@ -27,6 +27,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, isCollapsed, 
         { href: '/designs', label: 'Design Approval', icon: RefreshCw },
         { href: '/withdrawals', label: 'Withdrawals', icon: RefreshCw },
         { href: '/sales', label: 'Transactions', icon: BadgeDollarSign },
+        
     ];
 
     return (
@@ -34,7 +35,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, isCollapsed, 
             <aside className={clsx(styles.sidebar, { [styles.open]: isOpen, [styles.collapsed]: isCollapsed })}>
                 <div className={styles.brand}>
                     <Hexagon size={28} />
-                    {!isCollapsed && <span>Embroidery Admin</span>}
+                    {!isCollapsed && <span>Admin</span>}
                 </div>
 
                 {setIsCollapsed && (
