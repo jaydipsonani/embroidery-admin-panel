@@ -5,11 +5,22 @@ import { mockDesigns, Design } from '@/data/mockData';
 import styles from './Designs.module.scss';
 import clsx from 'clsx';
 import { DesignDetailsModal } from './DesignDetailsModal';
+import { ConfirmationModal } from '@/components/common/ConfirmationModal';
+import { toastSuccess } from '@/lib/toast';
 
 export default function DesignManagement() {
     const [activeTab, setActiveTab] = useState<'pending' | 'published' | 'rejected'>('pending');
     const [selectedDesign, setSelectedDesign] = useState<Design | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [confirmConfig, setConfirmConfig] = useState<{
+        show: boolean;
+        id: string;
+        action: 'approve' | 'reject';
+    }>({
+        show: false,
+        id: '',
+        action: 'approve'
+    });
 
     const filteredDesigns = mockDesigns.filter(d => d.status === activeTab);
 
@@ -25,14 +36,23 @@ export default function DesignManagement() {
     };
 
     const handleApprove = (id: string) => {
-        console.log('Approved:', id);
-        // In a real app, update state/API
-        setIsModalOpen(false);
+        setConfirmConfig({ show: true, id, action: 'approve' });
     };
 
     const handleReject = (id: string) => {
-        console.log('Rejected:', id);
-        // In a real app, update state/API
+        setConfirmConfig({ show: true, id, action: 'reject' });
+    };
+
+    const handleConfirmAction = () => {
+        const { id, action } = confirmConfig;
+        if (action === 'approve') {
+            console.log('Approved:', id);
+            toastSuccess('Design approved and published');
+        } else {
+            console.log('Rejected:', id);
+            toastSuccess('Design rejected');
+        }
+        setConfirmConfig(prev => ({ ...prev, show: false }));
         setIsModalOpen(false);
     };
 
@@ -64,6 +84,16 @@ export default function DesignManagement() {
                 onHide={() => setIsModalOpen(false)}
                 onApprove={handleApprove}
                 onReject={handleReject}
+            />
+
+            <ConfirmationModal
+                show={confirmConfig.show}
+                onHide={() => setConfirmConfig(prev => ({ ...prev, show: false }))}
+                onConfirm={handleConfirmAction}
+                title={confirmConfig.action === 'approve' ? 'Confirm Approval' : 'Confirm Rejection'}
+                message={`Are you sure you want to ${confirmConfig.action} this design?`}
+                variant={confirmConfig.action === 'approve' ? 'success' : 'danger'}
+                confirmText={confirmConfig.action === 'approve' ? 'Approve' : 'Reject'}
             />
         </Card>
     );
