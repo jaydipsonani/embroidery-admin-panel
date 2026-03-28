@@ -19,14 +19,6 @@ export const Header: React.FC<HeaderProps> = ({ title = 'Dashboard', onMenuClick
                 </button>
                 <h2 className={styles.title}>{title}</h2>
             </div>
-
-            {/* <div className={styles.profile}>
-                <div className={styles.info}>
-                    <span className={styles.name}>Admin User</span>
-                    <span className={styles.role}>Super Admin</span>
-                </div>
-                <div className={styles.avatar}>A</div>
-            </div> */}
         </header>
     );
 };

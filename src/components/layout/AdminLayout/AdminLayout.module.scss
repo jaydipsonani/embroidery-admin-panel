@@ -1,17 +1,15 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@import '../../../styles//main.scss';
 
 $sidebar-width: 280px;
 $sidebar-collapsed-width: 80px;
 
 .layout {
     display: flex;
-    min-height: 100vh;
     min-height: 100dvh; // Better mobile support
     width: 100%;
     max-width: 100vw;
     overflow-x: hidden;
-    background: $slate-50;
+    background: $slate-200;
     position: relative;
 
     &.collapsed {

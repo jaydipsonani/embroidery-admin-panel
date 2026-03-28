@@ -1,4 +1,3 @@
-import React from 'react';
 import { Designer } from '@/data/mockData';
 import styles from './designerTable.module.scss';
 import clsx from 'clsx';
@@ -24,10 +23,10 @@ export const DesignersTable = ({ data }: DesignersTableProps) => {
                 <tbody>
                     {data.map((item) => (
                         <tr key={item.id} className={styles.tr}>
+                            <td className={styles.td}>{item.joinedDate}</td>
                             <td className={styles.td}>{item.id}</td>
                             <td className={styles.td}>{item.name}</td>
                             <td className={styles.td}>{item.email}</td>
-                            <td className={styles.td}>{item.joinedDate}</td>
                             <td className={clsx(styles.td, styles.mono)}>₹{item.totalSales}</td>
                             <td className={clsx(styles.td, styles.balance)}>₹{item.walletBalance}</td>
                         </tr>
