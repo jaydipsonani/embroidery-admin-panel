@@ -2,8 +2,8 @@ import React from 'react';
 import { Design } from '@/data/mockData';
 import { Button } from '@/components/common/Button';
 import { Eye, CheckCircle, XCircle } from 'lucide-react';
-import styles from '@/components/common/Table/Table.module.scss';
-import customStyles from './Designs.module.scss';
+import styles from './DesignsTable.module.scss';
+import customStyles from './../Designs/Designs.module.scss';
 
 interface DesignsTableProps {
     data: Design[];

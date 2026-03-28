@@ -1,7 +1,7 @@
 import React from 'react';
 import { Badge } from '@/components/common/Badge';
 import { MachineOwner } from '@/data/mockData';
-import styles from '@/components/common/Table/Table.module.scss';
+import styles from './MachineOwnersTable.module.scss';
 import customStyles from './MachineOwners.module.scss';
 import clsx from 'clsx';
 
@@ -30,8 +30,8 @@ export const MachineOwnersTable = ({ data }: MachineOwnersTableProps) => {
                             <td className={styles.td}>{item.id}</td>
                             <td className={styles.td}>{item.name}</td>
                             <td className={styles.td}>{item.email}</td>
-                            <td className={clsx(styles.td, customStyles.location)}>{item.location}</td>
-                            <td className={clsx(styles.td, customStyles.machine)}>{item.machineModel}</td>
+                            <td className={clsx(styles.td, styles.location)}>{item.location}</td>
+                            <td className={clsx(styles.td, styles.machine)}>{item.machineModel}</td>
                             <td className={styles.td}>{item.joinedDate}</td>
                             <td className={styles.td}>
                                 <Badge status={item.status} />

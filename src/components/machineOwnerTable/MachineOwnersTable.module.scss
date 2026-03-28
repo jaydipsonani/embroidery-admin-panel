@@ -4,10 +4,10 @@
 .tableContainer {
     width: 100%;
     max-width: 100%;
-    max-height: 750px; // Adjust as needed for your layout
-    overflow-y: auto;  // Vertical scroll for table body
-    overflow-x: auto;  // Horizontal scroll when table is wide
-    -webkit-overflow-scrolling: touch; // Smooth scrolling on iOS
+    max-height: 750px;
+    overflow-y: auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     @include customScroll;
     position: relative;
 
@@ -17,8 +17,6 @@
 }
 
 .table {
-    // Let the table grow horizontally based on its columns,
-    // but never be smaller than the container.
     width: max-content;
     min-width: 100%;
     border-collapse: collapse;
@@ -36,7 +34,7 @@
     white-space: nowrap;
     position: sticky;
     top: 0;
-    z-index: 1; // Keep header above body rows while scrolling
+    z-index: 1;
 
     @include mobile {
         padding: 0.75rem 0.5rem;
@@ -55,7 +53,7 @@
     color: $slate-800;
     border-bottom: 1px solid $slate-100;
     vertical-align: middle;
-    white-space: nowrap; // Forces horizontal scroll if content is long
+    white-space: nowrap;
 
     @include mobile {
         padding: 0.75rem 0.5rem;
@@ -74,32 +72,11 @@
     }
 }
 
-.badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.25rem 0.75rem;
-    border-radius: 999px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
+.location {
+    font-size: 0.875rem;
+    color: $neutral-500;
+}
 
-    &.success {
-        background: #dcfce7;
-        color: $success-500;
-    }
-
-    &.pending {
-        background: #ffedd5;
-        color: $warning-500;
-    }
-
-    &.danger {
-        background: #fee2e2;
-        color: $danger-500;
-    }
-
-    &.info {
-        background: $primary-100;
-        color: $primary-600;
-    }
+.machine {
+    font-weight: 500;
 }

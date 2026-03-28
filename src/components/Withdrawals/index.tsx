@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card } from '@/components/common/Card';
-import { WithdrawalsTable } from './WithdrawalsTable';
+import { WithdrawalsTable } from '../withdrawalsTable/WithdrawalsTable';
 import { mockWithdrawals, WithdrawalRequest } from '@/data/mockData';
 import { toastSuccess } from '@/lib/toast';
 import { ConfirmationModal } from '@/components/common/ConfirmationModal';

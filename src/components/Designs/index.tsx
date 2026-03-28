@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Card } from '@/components/common/Card';
-import { DesignsTable } from './DesignsTable';
 import { mockDesigns, Design } from '@/data/mockData';
 import styles from './Designs.module.scss';
 import clsx from 'clsx';
 import { DesignDetailsModal } from './DesignDetailsModal';
 import { ConfirmationModal } from '@/components/common/ConfirmationModal';
 import { toastSuccess } from '@/lib/toast';
+import { DesignsTable } from '../designerTable/DesignsTable';
 
 export default function DesignManagement() {
     const [activeTab, setActiveTab] = useState<'pending' | 'published' | 'rejected'>('pending');

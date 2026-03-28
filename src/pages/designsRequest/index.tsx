@@ -1,7 +1,7 @@
 import React from 'react';
 import { AdminLayout } from '@/components/layout/AdminLayout';
 import Head from 'next/head';
-import DesignManagement from '@/components/admin/Designs';
+import DesignManagement from '@/components/Designs';
 
 export default function DesignsPage() {
     return (

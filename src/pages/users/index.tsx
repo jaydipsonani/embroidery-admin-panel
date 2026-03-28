@@ -1,7 +1,7 @@
 import React from 'react';
 import { AdminLayout } from '@/components/layout/AdminLayout';
 import Head from 'next/head';
-import MachineOwnersComponent from '@/components/admin/MachineOwners';
+import MachineOwnersComponent from '@/components/MachineOwners';
 
 export default function MachineOwners() {
     return (

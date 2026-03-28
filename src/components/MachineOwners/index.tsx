@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from '@/components/common/Card';
-import { MachineOwnersTable } from './MachineOwnersTable';
 import { mockMachineOwners } from '@/data/mockData';
+import { MachineOwnersTable } from '../machineOwnerTable/MachineOwnersTable';
 
 export default function MachineOwners() {
     return (

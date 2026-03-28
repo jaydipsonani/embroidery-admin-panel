@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../Table/Table.module.scss';
+import styles from './Badge.module.scss';
 import clsx from 'clsx';
 
 interface BadgeProps {

@@ -35,7 +35,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, isCollapsed, 
             <aside className={clsx(styles.sidebar, { [styles.open]: isOpen, [styles.collapsed]: isCollapsed })}>
                 <div className={styles.brand}>
                     <Hexagon size={28} />
-                    {!isCollapsed && <span>Admin</span>}
+                    {!isCollapsed && <span>Neddlo</span>}
                 </div>
 
                 {setIsCollapsed && (

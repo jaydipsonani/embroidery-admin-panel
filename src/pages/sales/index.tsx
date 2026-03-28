@@ -1,7 +1,6 @@
-import React from 'react';
 import { AdminLayout } from '@/components/layout/AdminLayout';
 import Head from 'next/head';
-import SalesComponent from '@/components/admin/Sales';
+import SalesComponent from '@/components/Sales';
 
 export default function Sales() {
     return (

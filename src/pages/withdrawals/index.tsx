@@ -1,7 +1,7 @@
 import React from 'react';
 import { AdminLayout } from '@/components/layout/AdminLayout';
 import Head from 'next/head';
-import WithdrawalsComponent from '@/components/admin/Withdrawals';
+import WithdrawalsComponent from '@/components/Withdrawals';
 
 export default function Withdrawals() {
     return (

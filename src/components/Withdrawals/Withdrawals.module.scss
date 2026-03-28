@@ -1,0 +1,7 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+
+.amountPending {
+    color: $warning-500;
+}

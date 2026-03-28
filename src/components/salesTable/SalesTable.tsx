@@ -1,8 +1,7 @@
 import React from 'react';
 import { Badge } from '@/components/common/Badge';
 import { Order } from '@/data/mockData';
-import styles from '@/components/common/Table/Table.module.scss';
-import customStyles from './Sales.module.scss';
+import styles from './SalesTable.module.scss';
 import clsx from 'clsx';
 
 interface SalesTableProps {
@@ -32,7 +31,7 @@ export const SalesTable = ({ data }: SalesTableProps) => {
                             <td className={styles.td}>{item.date}</td>
                             <td className={styles.td}>{item.buyerName}</td>
                             <td className={styles.td}>₹{item.amount}</td>
-                            <td className={clsx(styles.td, customStyles.commission)}>₹{item.commission}</td>
+                            <td className={clsx(styles.td)}>₹{item.commission}</td>
                             <td className={styles.td}>
                                 <Badge status={item.status} />
                             </td>

@@ -3,7 +3,7 @@ import { Badge } from '@/components/common/Badge';
 import { WithdrawalRequest } from '@/data/mockData';
 import { Button } from '@/components/common/Button';
 import { Check, X } from 'lucide-react';
-import styles from '@/components/common/Table/Table.module.scss';
+import styles from './WithdrawalsTable.module.scss';
 import customStyles from './Withdrawals.module.scss';
 
 interface WithdrawalsTableProps {
@@ -33,8 +33,8 @@ export const WithdrawalsTable = ({ data, onStatusChange }: WithdrawalsTableProps
                             <td className={styles.td}>₹{item.amount}</td>
                             <td className={styles.td}>
                                 <div>
-                                    <div className={customStyles.method}>{item.method}</div>
-                                    <div className={customStyles.details}>{item.details}</div>
+                                    <div className={styles.method}>{item.method}</div>
+                                    <div className={styles.details}>{item.details}</div>
                                 </div>
                             </td>
                             <td className={styles.td}>
@@ -42,7 +42,7 @@ export const WithdrawalsTable = ({ data, onStatusChange }: WithdrawalsTableProps
                             </td>
                             <td className={styles.td}>
                                 {item.status === 'pending' ? (
-                                    <div className={customStyles.actions}>
+                                    <div className={styles.actions}>
                                         <Button size="sm" onClick={() => onStatusChange(item.id, 'paid')}>
                                             <Check size={16} /> Pay
                                         </Button>
@@ -51,7 +51,7 @@ export const WithdrawalsTable = ({ data, onStatusChange }: WithdrawalsTableProps
                                         </Button>
                                     </div>
                                 ) : (
-                                    <span className={customStyles.completed}>Completed</span>
+                                    <span className={styles.completed}>Completed</span>
                                 )}
                             </td>
                         </tr>

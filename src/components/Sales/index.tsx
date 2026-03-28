@@ -1,6 +1,6 @@
 import { Card } from '@/components/common/Card';
-import { SalesTable } from './SalesTable';
 import { mockOrders } from '@/data/mockData';
+import { SalesTable } from '../salesTable/SalesTable';
 
 export default function Sales() {
     return (
